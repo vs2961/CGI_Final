@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Instructions</title>
+        <link rel="shortcut icon" type="image/png" href="./Images/shortcut.png">
+        <link rel="stylesheet" type="text/css" href="./CSS/goButton.css">
+        <style>
+            .center {
+                font-size:15pt;
+                text-align:center;
+                margin-left:20%;
+                margin-right:20%;
+            }
+            .footer {
+                position: relative;
+                left:0;
+                bottom: 0;
+                width: 100%;
+                background-color: white;
+                color: black;
+                text-align: right;
+                padding-right:30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+        <h1 style="text-align:center;">How to play Sudoku</h1>
+        <h3>What is Sudoku?</h3>
+        <p>Sudoku is played on a grid of 9 x 9 spaces. When solved, each row, column and square (9 spaces each) contain the numbers 1-9, without repetition. Every square has thicker lines surrounding it, to make them easier to see.
+        <h3>Board Setup</h3>
+        <p>Each problem comes with a few spaces already filled in. The numbers are randomized and placed into random slots to create a puzzle. The more difficult Sudoku puzzles have fewer spaces already filled in than an easier puzzle. 
+        </p>
+        <h3>Don't Repeat Any Numbers - Two basic Strategies!</h3>
+        <img src="./Images/example.jpg" alt="example">
+        <p>
+        As you can see, in the upper left square (circled in blue), this square already has 7 out of the 9 spaces filled in. 
+        We can figure out the missing numbers by counting. By counting up from 1 in that left square, we can deduce that the missing numbers are 5 and 6. 
+        By seeing which numbers are missing from each square, row, or column, we can then use another strateegy called cross-hatching to figure out which number belongs in each square. 
+        </p>
+        <p>
+        Cross-hatching is when you look at each row and column to figure out chere a certain number can go. So for example, in the upper left square, we know we need to add a 5 and a 6 to be able to complete the square. 
+        Therefore, we check both possible rows and columns, to check for a 5 or 6. However, based on the rows and columns we cannot clearly deduce which number to add in which space. This means that we should ignore the upper left square for now, and try to fill in spaces in some other areas of the grid instead.
+        </p>
+        <h3>Other tips and tricks - Road to becoming a master</h3>
+        <video controls width="800" height="400" poster="Images/sudoku.png" muted 
+        style="margin: 0 auto; display:block;width:800px;">
+            <source src="Videos/sudoku.mp4" type="video/mp4">
+        </video><br><br>
+        <form id="back" action="./index.html"></form>
+        <button class="goButton" form="back"><span>Go Back </span></button>
+        </div>
+        <div class="footer"><h4 style="z-index:50;">&copy; Copyright 2019 Victor Siu<br>
+        Questions, Comments, Concerns? Email me at
+        <a href="mailto:vsiu10@stuy.edu">vsiu10@stuy.edu</a></h4></div>    
+    </body>
+</html>

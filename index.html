@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="./Images/shortcut.png">
+        <link rel="stylesheet" type="text/css" href="./CSS/difficulty.css">
+        <link rel="stylesheet" type="text/css" href="./CSS/goButton.css">
+        <title>Sudoku</title>
+        <style>
+            .center {
+                height: 500px;
+                font-size:30pt;
+            }
+            .button {
+                height:60px;
+                text-align:center;
+            }
+            .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+                text-align: center;
+            }
+
+            .left {
+                left: 0;
+                background-color: white;
+            }
+
+            .right {
+                right: 0;
+                background-color: white;
+                z-index:0;
+            }
+            .vl {
+                border-left: 6px solid black;
+                height: 100%;
+                position: absolute;
+                left: 50%;
+                margin-left: -3px;
+                top: 0;
+                z-index:5;
+            }
+            .text {
+                top:100px;
+                width:100%;
+                text-align:center;
+                margin:auto;
+                max-width:500px;
+                font-size:15pt;
+            }
+
+            .footer {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: white;
+                color: black;
+                text-align: right;
+                padding-right:30px;
+                z-index: 4;
+            }
+            </style>
+            </head>
+    <body>
+        <form id="diffSelect" action="sudoku.py" method="post"></form>
+        <div class="split left">
+            <div class="text">
+                <h1>Sudoku: Choose Your Difficulty</h1>
+            </div>
+            <div class="center">
+                <ul class="difficulty">
+                    <li>
+                        <input type="radio" id="Easy" name="Difficulty" value="Easy" form="diffSelect" checked="checked"/>
+                        <label for="Easy">Easy</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="Normal" name="Difficulty" value="Normal" form="diffSelect"/>
+                        <label for="Normal">Normal</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="Hard" name="Difficulty" value="Hard" form="diffSelect"/>
+                        <label for="Hard">Hard</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="???" name="Difficulty" value="???" form="diffSelect"/>
+                        <label for="???">???</label>
+                    </li>
+                </ul>
+                <div class="button">
+                    <button form="diffSelect" class="goButton"><span>Go!  </span></button>
+                </div>
+            </div>
+        </div>
+        <div class="vl"></div>
+        <div class="split right">
+            <div class="text">
+                <h1>Don't know how to play the game? Click here for instructions:</h1>
+            </div>
+            <div class="center" style="top:250px;">
+                <form action="instructions.html" id="instructions"></form>
+                <button class="goButton" form="instructions"><span>Go! </span></button>
+            </div>
+        </div>
+        <div class="footer"><h4 style="z-index:50;">&copy; Copyright 2019 Victor Siu<br>
+        Questions, Comments, Concerns? Email me at 
+        <a href="mailto:vsiu10@stuy.edu">vsiu10@stuy.edu</a></h4></div>
+    </body>
+</html>

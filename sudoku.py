@@ -2,18 +2,55 @@
 
 import cgi
 import random
-from timeit import default_timer as timer
 
 print("""Content-type:text/html\n\n
         <!DOCTYPE html>
         <html lang="en-US">
         <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" type="image/png" href="./Images/shortcut.png">
         <style>
-            .table {
-                padding-left:50px;
-                padding-top:50px;
+            @media only screen and (max-width: 1199px) {
+                .split {
+                    width: 100%;
+                    position: relative;
+                }
+                .left {
+                    padding-top: 20px;
+                }
+                .right {
+                    text-align:center;
+                    z-index:0;
+                }
+                .center {
+                    border: 4px solid black;
+                }
+            }
+            @media only screen and (min-width: 1200px) {
+                .split {
+                    height: 100%;
+                    width:50%;
+                    position:fixed;
+                    text-align:center;
+                }
+                .left {
+                    left:0;
+                    padding-top: 20px;
+                }
+                .right {
+                    right:0;
+                    text-align:center;
+                    z-index:-2;
+                } 
+                .center {
+                    position: absolute;
+                    display: inline-block;
+                    padding:50px;
+                    border: 4px solid black;
+                    top: 50%;
+                    transform:translate(-50%, -50%);
+                }
             }
             .hoverButton {
                 background-color: white; 
@@ -21,6 +58,9 @@ print("""Content-type:text/html\n\n
                 border: 2px solid black;
                 padding:20px;
                 font-size:18pt;
+                text-align:center;
+                margin-bottom:30px;
+                width:250px;
             }
             .hoverButton:hover {
                 background-color: #DCEEFF;
@@ -182,8 +222,8 @@ def printTable(data, inputs, seed, difficulty, done):
     print("<form id='squares' action='sudoku.py' method='post' autocomplete='off'> </form>\n")
     print(f"<input type='text' value={seed} hidden='true' name='Seed' form='squares'>")
     print(f"<input type='text' value={difficulty} hidden='true' name='Diff' form='squares'>")
-    print("<div class='table'>")
-    print("<table align='left' border='2' cellspacing='0' cellpadding='0'>")
+    print("<div class='split left'>")
+    print("<table align='center' border='2' cellspacing='0' cellpadding='0' padding: 10px>")
     for a in range(3):
         print("<tr>\n")
         for b in range(3):
@@ -198,7 +238,8 @@ def printTable(data, inputs, seed, difficulty, done):
                                 value={inputs.getvalue(f'{counter}')}
                                 type="number" max='9' min='1' autocomplete='new-password'
                                 oninput="this.value = this.value.slice(0, this.maxLength);"
-                                style='color:#4C90E1;background-color: #FFBCBD;float:middle;font-size:22pt;
+                                style='color:#4C90E1;background-color: #FFBCBD;
+                                float:middle;font-size:22pt;
                                 border:0px solid;width:35px'>""")
                     elif (data[str(counter)] == "." or inputs.getvalue(str(counter))) and not done:
                         print("""<td style='height:84px;width:30px;
@@ -210,7 +251,7 @@ def printTable(data, inputs, seed, difficulty, done):
                                 style='color:#4C90E1;float:middle;font-size:22pt;
                                 border:0px solid;width:35px'>""")
                     elif data[str(counter)].startswith("red") and not done:
-                        print("<td bgcolor='FFBCBD' style='height:84px; width:70px;text-align:center;'>")
+                        print("<td bgcolor='FFBCBD' style='height:84px;width:70px;text-align:center;'>")
                         print(f"<h1>{data[str(counter)][-1]}</h1>")
                     else:
                         print("<td style='height:84px; width:70px;text-align:center;'>")
@@ -221,15 +262,18 @@ def printTable(data, inputs, seed, difficulty, done):
             print("</table>")
         print("</tr>")
     print("</table></div>")
+    print("<div class='split right'>")
+    print("<div class='center'>")
+    print("<h1>Options:</h1>")
     if not done:
-        print("<button class='hoverButton' form='squares'>Check Answer</button>")
+        print("<button class='hoverButton' form='squares'>Check Answer</button><br>")
         print("<button class='hoverButton' name='giveUp' value='1' form='squares'>Give Up</button>")
         print("<form id='newPuzzle' action='index.html'></form>")
         print("<button class='hoverButton' form='newPuzzle'>Go Back</button>")
     else:
         print("<form id='newPuzzle' action='index.html'></form>")
         print("<button class='hoverButton' form='newPuzzle'>New Puzzle?</button>")
-    
+    print("</div></div>")
 
 def main():
     inputs = cgi.FieldStorage()

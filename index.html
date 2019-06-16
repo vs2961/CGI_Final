@@ -25,7 +25,17 @@
                 padding-top: 20px;
                 text-align: center;
             }
-
+            .splitTop {
+                height:50%;
+                position:fixed;
+                width: 50%;
+            }
+            .bottom {
+                bottom: 0;
+            }
+            .top {
+                top: 0;
+            }
             .left {
                 left: 0;
                 background-color: white;
@@ -44,6 +54,12 @@
                 margin-left: -3px;
                 top: 0;
                 z-index:5;
+            }
+            .hl {
+                border-top: 6px solid black;
+                width: 100%;
+                position: absolute;
+                top:50%;
             }
             .text {
                 top:100px;
@@ -78,19 +94,19 @@
                     <li>
                         <input type="radio" id="Easy" name="Difficulty" value="Easy" form="diffSelect" checked="checked"/>
                         <label for="Easy">Easy</label>
-                    </li>
+                    </li><br><br>
                     <li>
                         <input type="radio" id="Normal" name="Difficulty" value="Normal" form="diffSelect"/>
                         <label for="Normal">Normal</label>
-                    </li>
+                    </li><br><br>
                     <li>
                         <input type="radio" id="Hard" name="Difficulty" value="Hard" form="diffSelect"/>
                         <label for="Hard">Hard</label>
-                    </li>
-                    <li>
+                    </li><br><br>
+                    <!--<li>
                         <input type="radio" id="???" name="Difficulty" value="???" form="diffSelect"/>
                         <label for="???">???</label>
-                    </li>
+                    </li><br><br>-->
                 </ul>
                 <div class="button">
                     <button form="diffSelect" class="goButton"><span>Go!  </span></button>
@@ -99,12 +115,24 @@
         </div>
         <div class="vl"></div>
         <div class="split right">
-            <div class="text">
-                <h1>Don't know how to play the game? Click here for instructions:</h1>
+            <div class="splitTop top">
+                <div class="text">
+                    <h1>Don't know how to play the game? Click here for instructions:</h1>
+                </div>
+                <div class="center" style="top:250px;">
+                    <form action="instructions.html" id="instructions"></form>
+                    <button class="goButton" form="instructions"><span>Go! </span></button>
+                </div>
             </div>
-            <div class="center" style="top:250px;">
-                <form action="instructions.html" id="instructions"></form>
-                <button class="goButton" form="instructions"><span>Go! </span></button>
+            <div class="hl"></div>
+            <div class="splitTop bottom">
+                <div class="text">
+                    <h1>References</h1>
+                </div>
+                <div class="center">
+                    <form action="bib.html" id="bib"></form>
+                    <button class="goButton" form="bib"><span>Go! </span></button>
+                </div>
             </div>
         </div>
         <div class="footer"><h4 style="z-index:50;">&copy; Copyright 2019 Victor Siu<br>

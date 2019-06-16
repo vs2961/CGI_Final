@@ -9,8 +9,13 @@
             .center {
                 font-size:15pt;
                 text-align:center;
-                margin-left:20%;
-                margin-right:20%;
+                margin-left:25%;
+                margin-right:25%;
+            }
+            .centervid {
+                width: 100%;
+                margin: 0 auto;
+                display: block;
             }
             .footer {
                 position: relative;
@@ -33,7 +38,7 @@
         <p>Each problem comes with a few spaces already filled in. The numbers are randomized and placed into random slots to create a puzzle. The more difficult Sudoku puzzles have fewer spaces already filled in than an easier puzzle. 
         </p>
         <h3>Don't Repeat Any Numbers - Two basic Strategies!</h3>
-        <img src="./Images/example.jpg" alt="example">
+        <img src="./Images/example.jpg" height=400 width=400 alt="sudoku-example">
         <p>
         As you can see, in the upper left square (circled in blue), this square already has 7 out of the 9 spaces filled in. 
         We can figure out the missing numbers by counting. By counting up from 1 in that left square, we can deduce that the missing numbers are 5 and 6. 
@@ -44,12 +49,11 @@
         Therefore, we check both possible rows and columns, to check for a 5 or 6. However, based on the rows and columns we cannot clearly deduce which number to add in which space. This means that we should ignore the upper left square for now, and try to fill in spaces in some other areas of the grid instead.
         </p>
         <h3>Other tips and tricks - Road to becoming a master</h3>
-        <video controls width="800" height="400" poster="Images/sudoku.png" muted 
-        style="margin: 0 auto; display:block;width:800px;">
+        <video class="centervid" controls width="800" height="400" poster="Images/sudoku.png" muted>
             <source src="Videos/sudoku.mp4" type="video/mp4">
         </video><br><br>
         <form id="back" action="./index.html"></form>
-        <button class="goButton" form="back"><span>Go Back </span></button>
+        <button class="goButton" form="back" style="width:200px;"><span>Go Back </span></button>
         </div>
         <div class="footer"><h4 style="z-index:50;">&copy; Copyright 2019 Victor Siu<br>
         Questions, Comments, Concerns? Email me at
